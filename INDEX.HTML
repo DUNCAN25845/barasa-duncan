@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Duncan Simiyu Barasa | Community Development Practitioner</title>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2e0ad6e8b.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafc;
+      color: #333;
+      line-height: 1.7;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background: #0059b3;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 8px 12px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(to right,#e0f0ff,#fff);
+      animation: fadeIn 1.5s ease-in;
+    }
+    .hero h1 {
+      font-size: 2.2em;
+    }
+    .hero p {
+      font-size: 1.1em;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .section h2 {
+      color: #003366;
+      border-bottom: 2px solid #0059b3;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      animation: fadeSlide 1s ease-in;
+    }
+    .footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #0059b3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #003366;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 10px;
+      padding-left: 1.2em;
+      position: relative;
+    }
+    ul li::before {
+      content: "✔";
+      color: #0059b3;
+      position: absolute;
+      left: 0;
+    }
+    blockquote {
+      background: #e8f0fe;
+      border-left: 5px solid #0059b3;
+      margin: 20px 0;
+      padding: 15px;
+      font-style: italic;
+      animation: fadeSlide 1s ease-in;
+    }
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+    }
+    .about-text {
+      flex: 1 1 60%;
+    }
+    .about-photo {
+      flex: 1 1 35%;
+      display: flex;
+      justify-content: center;
+    }
+    .about-photo img,
+    .image-animated {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: fadeZoom 2s forwards;
+    }
+    .image-full {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 15px auto;
+      border-radius: 150px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: slideUp 1.5s forwards;
+    }
+    @keyframes fadeIn { to {opacity: 1;} }
+    @keyframes fadeSlide { from {opacity:0;transform:translateY(-20px);} to {opacity:1;transform:translateY(0);} }
+    @keyframes fadeZoom { to {opacity:1;transform:scale(1);} }
+    @keyframes slideUp { to {opacity:1;transform:translateY(0);} }
+    @media(max-width:768px){
+      nav {flex-direction:column;}
+      .about-container {flex-direction:column;}
+      .about-photo {justify-content:center;}
+      .hero h1 {font-size:1.8em;}
+    }
+
+
+    .image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* or set your desired width */
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent black background */
+  color: white;
+  padding: 15px;
+  font-size: 1.5rem; /* bigger text */
+  font-weight: bold; /* bold text */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.watch-button {
+  display: inline-block;
+  background-color: #007BFF;  /* Bootstrap blue */
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.watch-button:hover {
+  background-color: #0056b3;  /* Darker blue on hover */
+  transform: translateY(-2px);  /* Subtle lift on hover */
+}
+
+.watch-button:active {
+  background-color: #004494;  /* Even darker when pressed */
+  transform: translateY(0);
+}
+
+.cv-button {
+  display: inline-block;
+  background-color: #28a745; /* green background */
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cv-button:hover {
+  background-color: #218838; /* darker green on hover */
+  transform: translateY(-2px);
+}
+
+.cv-button:active {
+  background-color: #1e7e34; /* even darker when pressed */
+  transform: translateY(0);
+}
+
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><i class="fas fa-leaf"></i> Duncan Simiyu Barasa</h1>
+  <p><i class="fas fa-briefcase"></i> Community Development Practitioner | Dean of Students & Lecturer</p>
+</header>
+
+<nav>
+  <a href="#home"><i class="fas fa-home"></i> Home</a>
+  <a href="#about"><i class="fas fa-user"></i> About</a>
+  <a href="#experience"><i class="fas fa-clipboard-list"></i> Experience</a>
+  <a href="#services"><i class="fas fa-cogs"></i> Services</a>
+  <a href="#work"><i class="fas fa-handshake"></i> Work With Me</a>
+  <a href="#testimonials"><i class="fas fa-comment"></i> Testimonials</a>
+  <a href="#videos"><i class="fas fa-video"></i> Videos</a>
+  <a href="#faqs"><i class="fas fa-question-circle"></i> FAQs</a>
+  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+</nav>
+
+<div class="hero" id="home">
+  <h1>Welcome to My Professional Portfolio</h1>
+  <p>I am Duncan Simiyu Barasa, a passionate Community Development Practitioner, Educator, Researcher, and Poet committed to driving sustainable social impact across Kenya and beyond.</p>
+  <a class="btn" href="#contact"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+</div>
+
+<div class="section" id="about">
+  <h2><i class="fas fa-user"></i> About Me</h2>
+  <div class="about-container">
+    <div class="about-text">
+      <p>
+  I am a dynamic and results-driven Community Development Practitioner dedicated to empowering individuals and communities through innovative solutions, mentorship, and education. With a passion for driving social impact, I have consistently demonstrated strong leadership, strategic thinking, and a commitment to lifelong learning.
+</p>
+
+<p>
+  I hold a Bachelor of Arts in Community Development from Lukenya University, where I gained extensive knowledge in social research, project management, and participatory approaches to development. Currently, I serve as the Dean of Students at the Compliance Institute of Professional Studies, where I oversee student affairs, promote academic excellence, and foster a supportive learning environment.
+</p>
+
+<p>
+  As a Lecturer, I teach a diverse range of courses including Web Design, ICT, Customer Service, Communication Skills, Entrepreneurship, and Community Development. My teaching philosophy is grounded in practical engagement, creativity, and capacity building to prepare students for success in both professional and community contexts.
+</p>
+
+<p>
+  Beyond academia, I am a passionate poet and author with over 300 original poems addressing themes such as peacebuilding, mental health awareness, personal growth, and empowerment. My literary work serves as a platform to inspire reflection, dialogue, and positive action.
+</p>
+
+<p>
+  I have also mentored numerous youth and professionals, facilitated workshops, and contributed to initiatives focused on environmental sustainability, mental health, and social inclusion. My experience spans community mobilization, research, proposal writing, and project implementation across various development sectors.
+</p>
+
+<h3>Vision</h3>
+<p>
+  To be a catalyst for positive change by fostering empowered communities, resilient leaders, and a culture of innovation and inclusivity.
+</p>
+
+<h3>Mission</h3>
+<p>
+  To inspire transformative change by equipping individuals and communities with knowledge, tools, and strategies for sustainable development while nurturing a spirit of collaboration and continuous learning.
+</p>
+
+    </div>
+    <div class="about-photo">
+      <img src="duncan-profile.jpg" alt="Duncan Simiyu Barasa">
+    </div>
+  </div>
+</div>
+
+<div class="section" id="experience">
+  <h2><i class="fas fa-briefcase"></i> Experience & Projects</h2>
+
+<h3>Dean of Students & Lecturer</h3>
+<p><strong>Compliance Institute of Professional Studies</strong><br>
+April 2025 – Present</p>
+<ul>
+  <li>Oversee all student affairs, welfare programs, and mentorship initiatives.</li>
+  <li>Develop and implement policies to enhance student engagement and success.</li>
+  <li>Teach courses including Web Design, ICT & Computer Applications, Customer Service, Communication Skills, Entrepreneurship, and Community Development.</li>
+  <li>Lead marketing strategies that increased enrollment by 20%.</li>
+</ul>
+
+<h3>Personal Assistant & Executive Manager</h3>
+<p><strong>Karanja and Gisore Advocates</strong><br>
+November 2024 – December 2024</p>
+<ul>
+  <li>Managed daily operations and coordinated legal research.</li>
+  <li>Oversaw client relations and streamlined office workflows.</li>
+  <li>Supported partners with documentation and scheduling.</li>
+</ul>
+
+<h3>Insurance Agent</h3>
+<p><strong>Jubilee Life Insurance</strong><br>
+2023</p>
+<ul>
+  <li>Promoted financial literacy within communities.</li>
+  <li>Expanded the client base through outreach and education.</li>
+  <li>Supported clients with policy selection and claims.</li>
+</ul>
+
+<h3>Community Development Intern</h3>
+<p><strong>Nairobi City County Government</strong><br>
+June – September 2023</p>
+<ul>
+  <li>Participated in project implementation and impact evaluations.</li>
+  <li>Conducted stakeholder engagement sessions.</li>
+  <li>Supported data collection and needs assessments for development programs.</li>
+</ul>
+
+<h3>Gas Cylinder Retail Business Owner</h3>
+<p><strong>Self-Employed</strong><br>
+January – December 2019</p>
+<ul>
+  <li>Managed all retail operations including inventory and customer service.</li>
+  <li>Implemented marketing strategies to grow the business.</li>
+  <li>Established relationships with suppliers and clients.</li>
+</ul>
+
+<h3>Projects & Initiatives</h3>
+<ul>
+  <li>One Million Tree Planting Marathon – Led afforestation campaigns to promote environmental sustainability.</li>
+  <li>Mentorship & Peer Counseling Programs – Designed and facilitated mental health and leadership programs for students.</li>
+  <li>Environmental Conservation – Organized community clean-up drives and awareness campaigns.</li>
+  <li>Research Project – Effects of Early Pregnancies on the Academic Performance of Teenage Girls in Mtito Andei Ward, Makueni County.</li>
+</ul>
+
+<a href="Duncan_Simiyu_Barasa_CV.pdf" download target="_blank" class="cv-button">
+  📄 Download My CV
+</a>
+
+
+<img src="duncan-speaking.jpg" alt="Speaking to Students" class="image-full">
+ 
+</div>
+
+<div class="section" id="videos">
+  <h2><i class="fas fa-video"></i> My Talks & Interviews</h2>
+  <p><strong>Sharing Leadership Skills: The Qualities of an Eagle</strong><br>
+  A presentation at Lukenya University on embodying the mindset of an eagle. 
+  <a href="https://youtu.be/mVJM9yAtTnI?si=EXLXe9zAJdMl_MD-" target="_blank">Watch Video</a></p>
+
+  <p><strong>Career Guidance at Compliance Institute</strong><br>
+  Mentoring Dadema Secondary School students on their potential and future paths.
+  <div class="image-container">
+  <img src="cips-visit.jpg" alt="CIPS Visit" class="image-full">
+  <div class="image-caption">
+    Compliance Institute of Professional Studies with Dadema Secondary School
+  </div>
+</div>
+
+  <a href="https://youtu.be/mVJM9yAtTnI?si=EXLXe9zAJdMl_MD-" target="_blank" class="watch-button">Watch Video</a></p>
+
+  <p><strong>Old Mutual Financial Literacy Session</strong><br>
+  Moderating a panel on financial literacy for students.
+  <a href="https://youtu.be/c-ZPUS6zoJA" target="_blank" class="watch-button">Watch Interview</a></p>
+
+  <p><strong>Motivational Talk on the Law of Attraction</strong><br>
+  Speaking to students about harnessing the power of positive thinking.
+  <a href="https://youtu.be/yfOAUtuF5q0" target="_blank" class="watch-button">Watch Video</a></p>
+
+  <p><strong>VMTV Kenya Interview</strong><br>
+  Discussing youth and community development.
+    <img src="vmtv-interview.jpg" alt="interview" class="image-full">
+  <a href="https://youtu.be/aZNojyHdGpU" target="_blank" class="watch-button">
+  Watch Interview
+</a>
+
+</div>
+
+<!-- Keep other sections such as Work With Me, FAQs, Contact -->
+<div class="section" id="work">
+  <h2><i class="fas fa-handshake"></i> Work With Me</h2>
+  <p>If you are looking for a trusted professional to elevate your project, inspire your audience, or empower your team, I am ready to partner with you across Kenya and internationally.</p>
+  <p>Whether you need modern digital solutions, impactful training, lectures, or transformational mentorship, I am committed to delivering excellence, reliability, and measurable results.</p>
+  <ul>
+    <li><strong>💻 Website Design Services</strong> – Attractive, mobile-friendly websites tailored to your brand and goals.</li>
+    <li><strong>🎤 Public Speaking & Training</strong> – Dynamic keynotes and workshops on leadership, youth empowerment, mental health, and sustainable development.</li>
+    <li><strong>👥 Mentorship Programs</strong> – Structured mentorship and coaching to unlock potential.</li>
+    <li><strong>🎓 Lectures</strong> – Teaching Web Design, ICT, Communication Skills, Customer Service, Entrepreneurship, and Community Development.</li>
+  </ul>
+  <p>✅ Proven track record across institutions, NGOs, and businesses.<br>
+  ✅ 300+ poems and publications amplifying social impact.<br>
+  ✅ Recognized speaker featured on VMTV Kenya.<br>
+  ✅ Committed to your success and growth.</p>
+  <a href="#contact" class="btn"><i class="fas fa-calendar-check"></i> Book a Consultation</a>
+</div>
+
+<div class="section" id="testimonials">
+  <h2><i class="fas fa-comment"></i> Testimonials</h2>
+  <blockquote>
+    "Duncan is an exceptional leader and mentor whose dedication to student welfare and community development is unmatched."
+    <br><strong>— Mr. Odhiambo Edward, Managing Director, Compliance Institute of Professional Studies</strong>
+  </blockquote>
+  <blockquote>
+    "His work in project management and community mobilization has created lasting impact among diverse communities."
+    <br><strong>— Dr. Wafula, Deputy Vice Chancellor, Lukenya University</strong>
+  </blockquote>
+  <blockquote>
+    "Duncan demonstrated outstanding organizational skills and professionalism in managing our daily operations and client relations. His ability to coordinate legal research added tremendous value to our practice."
+    <br><strong>— Mr. Karanja, Managing Partner, Karanja and Gisore Advocates</strong>
+  </blockquote>
+</div>
+
+<div class="section" id="faqs">
+  <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+  <ul>
+    <li><strong>What areas do you cover?</strong> – I work across Kenya and internationally online.</li>
+    <li><strong>Do you customize your training?</strong> – Yes, every session is tailored to your needs.</li>
+    <li><strong>How can I book you?</strong> – Use the contact section below or email me directly.</li>
+    <li><strong>What is your turnaround time for websites?</strong> – Typically 2–4 weeks, depending on complexity.</li>
+    <li><strong>Do you offer mentorship for individuals?</strong> – Absolutely, including ongoing coaching.</li>
+    <li><strong>Can you deliver lectures at my institution?</strong> – Yes, both in-person and online.</li>
+    <li><strong>Do you create content for campaigns?</strong> – Yes, including creative writing and poetry.</li>
+    <li><strong>Are your services affordable?</strong> – I offer flexible packages to fit your budget.</li>
+    <li><strong>What makes you different?</strong> – My blend of expertise, passion, and proven results.</li>
+    <li><strong>Can I get a proposal?</strong> – Yes, please contact me to discuss details.</li>
+  </ul>
+</div>
+
+<div class="section" id="contact">
+  <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+  <p><i class="fas fa-envelope"></i> Email: <a href="mailto:duncansimiyu70@gmail.com">duncansimiyu70@gmail.com</a></p>
+  <p><i class="fas fa-phone"></i> Phone: +254 758 006 395</p>
+  <p><i class="fas fa-map-marker-alt"></i> Location: Nairobi, Kenya</p>
+  <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/duncan-barasa-3795b9344" target="_blank" class="watch-button">Visit My LinkedIn</a></p>
+</div>
+
+<footer class="footer">
+  <p>&copy; 2025 Duncan Simiyu Barasa. All rights reserved.</p>
+</footer>
+<!-- WhatsApp Floating Button with Prefilled Message and Label -->
+<a href="https://wa.me/254758006395?text=Hi%20Duncan%2C%20I%20visited%20your%20website%20and%20would%20like%20to%20learn%20more%20about%20your%20services." target="_blank" class="whatsapp-float" title="Chat with me on WhatsApp">
+  <!-- WhatsApp SVG Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="34" height="34" style="vertical-align: middle; margin-right: 8px;">
+    <path fill="#ffffff" d="M16 0C7.163 0 0 7.163 0 16c0 2.85.746 5.569 2.167 7.977L0 32l8.261-2.14A15.88 15.88 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.6c-2.536 0-5.013-.66-7.19-1.91l-.515-.295-4.9 1.27 1.32-4.785-.334-.55A13.47 13.47 0 012.4 16C2.4 8.879 8.879 2.4 16 2.4S29.6 8.879 29.6 16 23.121 29.6 16 29.6zm7.22-10.59c-.39-.2-2.31-1.14-2.67-1.27-.36-.13-.62-.2-.89.2s-1.02 1.27-1.25 1.53c-.23.26-.46.29-.85.1-.39-.2-1.64-.6-3.13-1.9-1.16-1.04-1.94-2.32-2.17-2.71-.23-.39-.03-.6.17-.79.18-.18.39-.46.58-.69.2-.23.26-.39.39-.65.13-.26.07-.49-.03-.69-.1-.2-.89-2.15-1.21-2.95-.32-.77-.64-.66-.89-.67l-.76-.01c-.26 0-.68.1-1.04.46s-1.37 1.34-1.37 3.26c0 1.91 1.4 3.76 1.6 4.02.2.26 2.75 4.2 6.66 5.89.93.4 1.66.64 2.23.82.94.3 1.79.26 2.46.16.75-.11 2.31-.94 2.63-1.86.33-.93.33-1.73.23-1.9-.1-.16-.36-.26-.75-.46z"/>
+  </svg>
+  <span>Chat with me</span>
+</a>
+
+<style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 18px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 100;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+</style>
+
+
+</body>
+</html>
